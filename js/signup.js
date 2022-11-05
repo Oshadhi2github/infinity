@@ -15,7 +15,8 @@ function User(username,email,type,avatar,password){
 const registerUser=()=>{
     //trim=> "__ABC_"==> after trim ==> "ABC" (spaces rid)
     let tempPassword = $('#password').val().toString().trim();
-    let encryptedPwd = CryptoJS.AES.encrypt('infinity',tempPassword);
+    console.log(tempPassword)
+    let encryptedPwd = CryptoJS.AES.encrypt(tempPassword,'infinity');
     let user = new User(
     $('#username').val().toString().trim(),
         $('#email').val().toString().trim(),
