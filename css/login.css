@@ -44,5 +44,56 @@
     position: relative;
     z-index: 5;
     border-radius: 10px;
+    display: flex;
 }
+.context{
+    flex: 1;
+}
+/*right side area*/
+.right{
+    background-image: url("https://img.freepik.com/free-photo/abstract-blur-defocused-restaurant-coffee-shop-cafe-interior_1203-9331.jpg?w=740&t=st=1667643925~exp=1667644525~hmac=747b1debecde7d52c6aed601e653b5f725976c8b8a876878aca40c20295eb27d");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.data{
+    position: relative;
+    z-index: 1;
+}
+.shadow{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logo>img{
+    width: 100px;
+}
+.title{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.desc{
+    padding: 0px 20px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 95px;
+}
+.bottom-data{
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-data>p{
+    color: white;
+    padding: 0 20px;
+}
+/*right side area*/
 /*login-outer*/
