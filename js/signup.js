@@ -1,3 +1,8 @@
+let users=[];
+let temp=JSON.parse(localStorage.getItem('users'));
+if (temp!=null){
+    users=temp;
+}
 function User(username,email,type,avatar,password){
     this.username=username;
     this.email=email;
@@ -9,12 +14,15 @@ function User(username,email,type,avatar,password){
 
 const registerUser=()=>{
     //trim=> "__ABC_"==> after trim ==> "ABC" (spaces rid)
+    let tempPassword = $('#password').val().toString().trim();
+    let encryptedPwd = CryptoJS.AES.encrypt('infinity',tempPassword);
     let user = new User(
     $('#username').val().toString().trim(),
         $('#email').val().toString().trim(),
         $('#type').val(),
         "",
-        $('#password').val().toString().trim()
+        encryptedPwd.toString()
     );
-    localStorage.setItem('users',JSON.stringify(user));
+    users.push(user);
+    localStorage.setItem('users',JSON.stringify(users));
 }
