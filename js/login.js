@@ -1,5 +1,10 @@
 const login=()=>{
-    let users=JSON.parse(localStorage.getItem('users'));
+    let users=[];
+    let temp=JSON.parse(localStorage.getItem('users'));
+    if (temp!=null){
+        users=temp;
+    }
+
     const uname = $('#username').val().toString().trim();
     const pwd = $('#password').val().toString().trim();
     for (const temp of users){
@@ -7,7 +12,7 @@ const login=()=>{
             console.log(temp.password);
            let decryptedPwd = CryptoJS.AES.decrypt(temp.password,'infinity').toString(CryptoJS.enc.Utf8);
             if (pwd===decryptedPwd){
-                alert('welcome');
+                window.location.href="../pages/dashboard.html";
                 return;
             }else{
                 alert('password is incorrect')
