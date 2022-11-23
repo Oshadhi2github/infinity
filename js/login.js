@@ -12,7 +12,7 @@ const login=()=>{
             console.log(temp.password);
            let decryptedPwd = CryptoJS.AES.decrypt(temp.password,'infinity').toString(CryptoJS.enc.Utf8);
             if (pwd===decryptedPwd){
-                window.location.href="../pages/dashboard.html";
+                window.location.replace("dashboard.html");
                 return;
             }else{
                 alert('password is incorrect')
