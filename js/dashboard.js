@@ -11,11 +11,13 @@ if (temp===null){
 
 const placeOrder=(item)=>{
     itemsForOrder.push(item);
-
+    let row= '';
     itemsForOrder.forEach(data=>{
-        let row= <li>${data}</li>;
-        $('items-list').innerHTML=row;
+        row+=`<li>${data}</li>`
+
+        $('#items-list').html(row);
     });
+    console.log(itemsForOrder)
 }
 
 
