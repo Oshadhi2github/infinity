@@ -1,4 +1,8 @@
+qty='';
 
+//=======================
+let itemsForOrder=[];
+//=======================
 initializeItems=()=>{
     let alacarta=[];
     alacarta.push({id:'1001',name:'Mc Chicken',image:'https://e7.pngegg.com/pngimages/2/266/png-clipart-mcchicken-mcdonald-s-hamburger-chicken-as-food-chicken.png',price:500});
@@ -44,9 +48,6 @@ getRand=()=>{
 
 
 
-//=======================
-let itemsForOrder=[];
-//=======================
 
 let temp=JSON.parse(localStorage.getItem('users'));
 console.log(temp)
@@ -63,6 +64,19 @@ const placeOrder=(item)=>{
         $('#items-list').html(row);
     });
     console.log(itemsForOrder)
+}
+
+const manageCount=(number)=>{
+    if (number===0){
+        if (qty===0){
+            return;
+        }else{
+            qty+=number;
+        }
+    }else{
+        qty+=number;
+    }
+    $('.count-text').html(qty);
 }
 
 
