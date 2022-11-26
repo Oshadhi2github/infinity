@@ -2,9 +2,10 @@ qty='';
 
 //=======================
 let itemsForOrder=[];
+let alacarta=[];
 //=======================
 initializeItems=()=>{
-    let alacarta=[];
+
     alacarta.push({id:'1001',name:'Mc Chicken',image:'https://e7.pngegg.com/pngimages/2/266/png-clipart-mcchicken-mcdonald-s-hamburger-chicken-as-food-chicken.png',price:500});
     alacarta.push({id:'1002',name:'Big Mac (Chicken',image:'https://w7.pngwing.com/pngs/24/445/png-transparent-mcdonald-s-big-mac-chicken-sandwich-fast-food-mcchicken-hamburger-chicken.png',price:450});
     alacarta.push({id:'1003',name:'Cheese Burger',image:'https://e7.pngegg.com/pngimages/343/134/png-clipart-whopper-cheeseburger-hamburger-big-king-chophouse-restaurant-cheese-burger.png',price:700});
@@ -57,18 +58,14 @@ if (temp===null){
 
 const placeOrder=(item)=>{
     itemsForOrder.push(item);
-    let row= '';
-    itemsForOrder.forEach(data=>{
-        row+=`<li>${data}</li>`
+    let temp = alacarta.filter(e=> e.id==item);
+    console.log(temp);
 
-        $('#items-list').html(row);
-    });
-    console.log(itemsForOrder)
 }
 
 const manageCount=(number)=>{
-    if (number===0){
-        if (qty===0){
+    if (number==0){
+        if (qty==0){
             return;
         }else{
             qty+=number;
@@ -76,6 +73,11 @@ const manageCount=(number)=>{
     }else{
         qty+=number;
     }
+    $('.count-text').html(qty);
+}
+
+const resetQty=()=>{
+    qty='';
     $('.count-text').html(qty);
 }
 
