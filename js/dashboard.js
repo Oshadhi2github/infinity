@@ -74,7 +74,15 @@ const placeOrder=(item)=>{
         item['total']=total;
     }
     itemsForOrder.push(item);
-    console.log(itemsForOrder);
+
+    let html='';
+    itemsForOrder.forEach(resp=>{
+        // language=HTML
+        html+=`<tr><td>${resp.name}</td>
+            <td>${resp.requestedQty}</td>
+            <td>${resp.total}</td></tr>`;
+    });
+    $('#order-items').html(html);
 
 }
 
