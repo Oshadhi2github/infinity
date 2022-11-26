@@ -57,9 +57,24 @@ if (temp===null){
 }
 
 const placeOrder=(item)=>{
+   // itemsForOrder.push(item);
+    //let temp = alacarta.filter(e=> e.id==item);
+    let temp = alacarta.find(e=> e.id==item);
+    item={
+        id: temp.id,
+        name:temp.name,
+        requestedQty:1,
+        total:temp.price
+    }
+    if (qty!=0){
+        tempQty = Number(qty);
+        total=temp.price*tempQty;
+        //row==> qty = qty
+        item['requestedQty']=tempQty;
+        item['total']=total;
+    }
     itemsForOrder.push(item);
-    let temp = alacarta.filter(e=> e.id==item);
-    console.log(temp);
+    console.log(itemsForOrder);
 
 }
 
